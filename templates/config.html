@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>V2ray.fun - 连接配置</title>
+    <title>V2ray panel - Xd</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/static/css/mdui.min.css">
     <script src="/static/js/mdui.min.js"></script>
@@ -16,11 +16,11 @@
     <div class="mdui-toolbar mdui-color-theme">
         <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}">
             <i class="mdui-icon material-icons">menu</i></span>
-        <a href="./" class="mdui-typo-headline mdui-hidden-xs">V2ray.fun</a>
-        <a href="" class="mdui-typo-title">连接配置</a>
+        <a href="./" class="mdui-typo-headline mdui-hidden-xs">V2ray panel</a>
+        <a href="" class="mdui-typo-title">configuración de conexión</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a href="https://github.com/FunctionClub/" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
-           mdui-tooltip="{content: 'Github'}">
+        <a href="https://t.me/alexmod80" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+           mdui-tooltip="{content: 'Telegram'}">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 36"
                  enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon" style="width: 24px;height:24px;">
         <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
@@ -39,14 +39,14 @@
         <div class="mdui-collapse-item mdui-collapse-item-open">
             <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
-                <div class="mdui-list-item-content">控制面板</div>
+                <div class="mdui-list-item-content">Panel de control</div>
                 <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
             </div>
             <div class="mdui-collapse-item-body mdui-list">
-                <a href="index.html" class="mdui-list-item mdui-ripple">运行状态</a>
-                <a href="config.html" class="mdui-list-item mdui-ripple  mdui-list-item-active">修改连接</a>
-                <a href="app.html" class="mdui-list-item mdui-ripple">软件下载</a>
-                <a href="log.html" class="mdui-list-item mdui-ripple">运行日志</a>
+                <a href="index.html" class="mdui-list-item mdui-ripple">estado de funcionamiento</a>
+                <a href="config.html" class="mdui-list-item mdui-ripple  mdui-list-item-active">modificar la conexión</a>
+                <a href="app.html" class="mdui-list-item mdui-ripple">Descargar</a>
+                <a href="log.html" class="mdui-list-item mdui-ripple">Ejecutar Iniciar</a>
             </div>
         </div>
 
@@ -61,31 +61,31 @@
                     <table class="mdui-table">
                         <thead>
                         <tr>
-                            <th>参数</th>
-                            <th>操作</th>
+                            <th>parámetros</th>
+                            <th>operación</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>运行控制</td>
+                            <td>Ejecutar Control</td>
                             <td>
                                 <div class="mdui-row">
                                     <div class="mdui-col-md-3">
                                         <div class="mdui-chip" onclick="start_service()">
                                             <span class="mdui-chip-icon mdui-color-green"><i class="mdui-icon material-icons">play_arrow</i></span>
-                                            <span class="mdui-chip-title">启动</span>
+                                            <span class="mdui-chip-title">Iniciar</span>
                                         </div>
                                     </div>
                                     <div class="mdui-col-md-3">
                                         <div class="mdui-chip" onclick="stop_service()">
                                             <span class="mdui-chip-icon mdui-color-red"><i class="mdui-icon material-icons">stop</i></span>
-                                            <span class="mdui-chip-title">停止</span>
+                                            <span class="mdui-chip-title">stop</span>
                                         </div>
                                     </div>
                                     <div class="mdui-col-md-3">
                                         <div class="mdui-chip" onclick="restart_service()">
                                             <span class="mdui-chip-icon mdui-color-yellow-700"><i class="mdui-icon material-icons">settings_backup_restore</i></span>
-                                            <span class="mdui-chip-title">重启</span>
+                                            <span class="mdui-chip-title">reiniciar</span>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>协议类型</td>
+                            <td>tipo de protocolo</td>
                             <td>
                                 <div class="mdui-row">
                                     <div class="mdui-col-md-4" style="margin: 3px">
@@ -104,23 +104,23 @@
                                     </div>
                                     <div class="mdui-col-md-2"></div>
                                     <div class="mdui-col-md-1">
-                                        <button onclick="change_protocol()" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >修改协议</button>
+                                        <button onclick="change_protocol()" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >Modificar el acuerdo</button>
                                     </div>
                                 </div>
                             </td>
                         </tr>
 
                         <tr>
-                            <td>主端口</td>
+                            <td>puerto primario</td>
                             <td>
                                 <div class="mdui-row">
                                     <div class="mdui-col-md-4" style="margin: 3px">
-                                        <input id="port" class="mdui-textfield-input" type="text" placeholder="端口号" value="1234"/>
+                                        <input id="port" class="mdui-textfield-input" type="text" placeholder="número de puerto" value="1234"/>
                                     </div>
                                     <div class="mdui-col-md-2"></div>
                                     <div class="mdui-col-md-1">
                                         <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple"
-                                                onclick="change_port()">修改端口</button>
+                                                onclick="change_port()">modificar puerto</button>
                                     </div>
                                 </div>
 
@@ -128,7 +128,7 @@
                             </td>
                         </tr>
                         <tr class="mtproto-config">
-                            <td>用户秘钥</td>
+                            <td>clave secreta de usuario</td>
                             <td>
                                 <div class="mdui-row">
                                     <div class="mdui-col-md-6">
@@ -158,7 +158,7 @@
                             </td>
                         </tr>
                         <tr class="vmess-config">
-                            <td>加密方式</td>
+                            <td>método de encriptación</td>
                             <td>
                                 <div class="mdui-row">
                                     <div class="mdui-col-md-4" style="margin: 3px">
@@ -167,27 +167,27 @@
                                     </div>
                                     <div class="mdui-col-md-2"></div>
                                     <div class="mdui-col-md-1">
-                                        <button onclick="change_encrypt()" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >修改加密</button>
+                                        <button onclick="change_encrypt()" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >modificar el cifrado</button>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>传输方式
+                            <td>método de transmisión
                                 <i class="mdui-icon material-icons mdui-text-color-grey-400" mdui-dialog="{target: '#trans-helper'}">info</i>
                                 <div class="mdui-dialog" id="trans-helper">
-                                    <div class="mdui-dialog-title">传输方式说明</div>
+                                    <div class="mdui-dialog-title">Descripción del método de transferencia</div>
                                     <div class="mdui-dialog-content">
-                                        <b>TCP</b>：默认传输协议<br>
-                                        <b>WebSocket</b>：Websocket 传输协议<br>
-                                        <b>KCP</b>：普通 mKCP 传输协议<br>
-                                        <b>KCP srtp</b>：mKCP 伪装 FaceTime 通话协议<br>
-                                        <b>KCP utp</b>：mKCP 伪装 BT 数据协议<br>
-                                        <b>KCP wechat</b>：mKCP 伪装微信数据协议<br>
+                                        <b>TCP</b>Protocolo de transferencia por defecto<br>
+                                        <b>WebSocket</b>WebSocket Transfer Protocol<br>
+                                        <b>KCP</b>protocolo de transporte común mKCP<br>
+                                        <b>KCP srtp</b>mKCP camuflaje FaceTime protocolo de llamada<br>
+                                        <b>KCP utp</b>mKCP datos de protocolo de camuflaje BT<br>
+                                        <b>KCP wechat</b>camuflaje protocolo de micro-datos mKCP<br>
 
                                     </div>
                                     <div class="mdui-dialog-actions">
-                                        <button class="mdui-btn mdui-ripple" mdui-dialog-close="">确认</button>
+                                        <button class="mdui-btn mdui-ripple" mdui-dialog-close="">Confirmar</button>
                                     </div>
                                 </div>
                             </td>
@@ -199,31 +199,31 @@
                                     </div>
 
                                     <div class="mdui-dialog" id="websocket-dialog">
-                                            <div class="mdui-dialog-title">WebSocket 域名设置</div>
+                                            <div class="mdui-dialog-title">Configuración de dominio de WebSocket</div>
                                             <div class="mdui-dialog-content">
                                                 <div class="mdui-row">
                                                     <div class="mdui-col-md-2"></div>
-                                                    <p><strong>* </strong> 请务必将您的域名先解析到本台服务器！</p>
+                                                    <p><strong>* </strong>ĄAsegúrese de tener su nombre de dominio a este servidor primero!</p>
                                                 </div>
                                                 <p></p>
                                                 <div class="mdui-row">
                                                     <div class="mdui-col-md-2"></div>
                                                     <div class="mdui-col-md-6">
-                                                            <input id="ws_input_domain" class="mdui-textfield-input" placeholder="请输入域名（无需http://）" value="" />
+                                                            <input id="ws_input_domain" class="mdui-textfield-input" placeholder="ingrese el nombre de dominio (sin http://)" value="" />
                                                     </div>
                                                 </div>
                                                 <p></p>
 
                                             </div>
                                             <div class="mdui-dialog-actions">
-                                                <button class="mdui-btn mdui-ripple" mdui-dialog-close="" onclick="set_websocket()">确认</button>
+                                                <button class="mdui-btn mdui-ripple" mdui-dialog-close="" onclick="set_websocket()">Confirmar</button>
                                             </div>
                                         </div>
 
 
                                     <div class="mdui-col-md-2"></div>
                                     <div class="mdui-col-md-1">
-                                        <button onclick="change_trans()" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >修改传输</button>
+                                        <button onclick="change_trans()" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" >modifica la transferencia</button>
                                     </div>
                                 </div>
                             </td>
@@ -235,27 +235,27 @@
                                     <div class="mdui-col-md-6">
                                         <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-green-500
                                          mdui-ripple mdui-text-color-white" mdui-dialog="{target: '#tls_config'}"  >
-                                            开启
+                                            Abierto
                                         </button>
                                         <div class="mdui-dialog" id="tls_config">
-                                            <div class="mdui-dialog-title">TLS 设置</div>
+                                            <div class="mdui-dialog-title">Configuraciones TLS</div>
                                             <div class="mdui-dialog-content">
                                                 <div class="mdui-row">
                                                     <div class="mdui-col-md-2"></div>
-                                                    <p><strong>* </strong> 请务必将您的域名先解析到本台服务器！否则无法自动获取SSL证书！</p>
+                                                    <p><strong>* </strong>ĄAsegúrese de tener su nombre de dominio a este servidor primero! De lo contrario, el certificado SSL no se puede obtener automáticamente!</p>
                                                 </div>
                                                 <div class="mdui-row">
                                                     <div class="mdui-col-md-2"></div>
-                                                    <p><strong>* </strong> 生成过程可能需要等待 20秒 - 1分钟，请耐心等待！</p>
+                                                    <p><strong>* </strong>El proceso de construcción puede demorar entre 20 segundos y 1 minuto, Ątenga paciencia!</p>
                                                 </div>
                                                 <p></p>
                                                 <div class="mdui-row">
                                                     <div class="mdui-col-md-2"></div>
                                                     <div class="mdui-col-md-6">
-                                                            <input id="input_domain" class="mdui-textfield-input" placeholder="请输入域名（无需http://）" value="" />
+                                                            <input id="input_domain" class="mdui-textfield-input" placeholder="ingrese el nombre de dominio (sin http://)" value="" />
                                                     </div>
                                                     <div class="mdui-col-md-2">
-                                                        <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" onclick="gen_ssl()">生成证书</button>
+                                                        <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" onclick="gen_ssl()">generar certificado</button>
                                                     </div>
                                                 </div>
                                                 <p></p>
@@ -272,15 +272,15 @@
                                             </div>
                                             <div class="mdui-dialog-actions">
                                                 <button id="confirm_tls" disabled class="mdui-btn mdui-ripple" mdui-dialog-close=""
-                                                        onclick="change_TLS('on');document.getElementById('confirm_tls').setAttribute('disabled','disabled');">确认</button>
+                                                        onclick="change_TLS('on');document.getElementById('confirm_tls').setAttribute('disabled','disabled');">confirmar</button>
                                                 <button class="mdui-btn mdui-ripple" mdui-dialog-close=""
-                                                        onclick="document.getElementById('confirm_tls').setAttribute('disabled','disabled');">取消</button>
+                                                        onclick="document.getElementById('confirm_tls').setAttribute('disabled','disabled');">Cancelar</button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mdui-col-md-2">
                                         <button onclick="change_TLS('off')" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-red-500 mdui-ripple mdui-text-color-white" >
-                                            关闭
+                                            Cerrar
                                         </button>
                                     </div>
                                 </div>
@@ -294,12 +294,12 @@
                                 <div class="mdui-row">
                                     <div class="mdui-col-md-6">
                                         <button onclick="change_mux('on')" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-green-500 mdui-ripple mdui-text-color-white" >
-                                            开启
+                                            Abierto
                                         </button>
                                     </div>
                                     <div class="mdui-col-md-2">
                                         <button onclick="change_mux('off')" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-red-500 mdui-ripple mdui-text-color-white" >
-                                            关闭
+                                            Cerrar
                                         </button>
                                     </div>
                                 </div>
@@ -335,11 +335,11 @@
             $('.mtproto-config').removeAttr("style");
         }
         var encrypt_html ='<select name="encrypt" class="mdui-select" mdui-select>\n' +
-            '<option id="auto" value="1"> auto (自动选择)</option>\n' +
+            '<option id="auto" value="1"> auto (selección automática)</option>\n' +
             '<option id="aes-128-cfb" value="2"> aes-128-cfb </option>\n' +
             '<option id="aes-128-gcm" value="3"> aes-128-gcm </option>\n' +
             '<option id="chacha20-poly1305" value="4"> chacha20-poly1305</option>\n' +
-            '<option id="none" value="5"> none (不加密) </option>\n' +
+            '<option id="none" value="5"> none (sin cifrado) </option>\n' +
             '</select>'
 
         $("#encrypt_form").append(encrypt_html);
@@ -399,7 +399,7 @@
             $('.mtproto-config').removeAttr("style");
         }
         $.get("/set_protocol",$('#protocol_form').serialize());
-        message("协议类型已修改,请配置完整后重启服务")
+        message("El tipo de protocolo ha sido modificado, configure el servicio de reinicio completo")
     }
 
     function change_secret(){
@@ -407,7 +407,7 @@
         $.get("/set_secret", {
             "secret": new_secret
         });
-        message("已生成新用户秘钥")
+        message("ha generado nueva clave de usuario")
         $("#secret").attr("value", new_secret);
     }
 
@@ -417,7 +417,7 @@
             "setuuid" : new_uuid
         })
 
-        message("已生成新UUID");
+        message("ha generado un nuevo UUID");
         $('#uuid').attr("value",new_uuid);
     }
 
@@ -426,34 +426,34 @@
 
         if(!isAllNaN(port))
         {
-            mdui.alert('端口号只能为数字');
+            mdui.alert('número de puerto sólo dígitos');
         }
         else
         {
             var port_num = parseInt(port);
             if (port_num === 22 || port_num < 0 || port_num > 65535)
             {
-                mdui.alert("端口号只能在 0 - 65535 之间");
+                mdui.alert("número de puerto 0 - 65535");
             }
             else
             {
                 $.get("/set_port",{
                     setport : port_num
                 })
-                message("端口已修改")
+                message("el puerto ha sido modificado")
             }
         }
     }
 
     function change_encrypt() {
         $.get("/set_encrypt",$('#encrypt_form').serialize());
-        message("加密方式已修改")
+        message("El método de cifrado ha sido modificado")
     }
 
     function set_websocket() {
         let result = "trans=2&domain=" + document.getElementById('ws_input_domain').value;
         $.get("/set_trans",result);
-        message("传输方式已修改");
+        message("El modo de transferencia ha sido modificado");
 
     }
     
@@ -469,7 +469,7 @@
         else
         {
             $.get("/set_trans",result);
-            message("传输方式已修改");
+            message("El modo de transferencia ha sido modificado");
         }
 
     }
@@ -482,7 +482,7 @@
                 "action" : "off",
                 "domain" : "none"
             });
-            message("TLS 已关闭")
+            message("TLS está cerrado­")
         }
         else
         {
@@ -490,7 +490,7 @@
                 "action" : "on",
                 "domain" : domain
             });
-            message("TLS 已开启")
+            message("TLS está activado")
         }
     }
 
@@ -500,14 +500,14 @@
             $.get("/set_mux",{
                 "action" : "on",
             });
-            message("Mux.cool 已开启")
+            message("Mux.cool está activado")
         }
         else if(action === "off")
         {
             $.get("/set_mux",{
                 "action" : "off",
             });
-            message("Mux.cool 已关闭")
+            message("Mux.cool está cerrado­")
         }
     }
 
@@ -515,11 +515,11 @@
         let domain = document.getElementById('input_domain').value;
         if (domain.startsWith("http:"))
         {
-            alert("请勿输入 http:// ");
+            alert("No ingresar http://");
         }
         else if(domain === "")
         {
-            alert("请入域名");
+            alert("Por favor ingrese el nombre de dominio");
         }
         else
         {
@@ -533,7 +533,7 @@
                     }
                     else
                     {
-                        alert("请检查域名是否已解析至此服务器，这可能需要等待数分钟");
+                        alert("Verifique si el nombre de dominio se ha resuelto en este servidor, esto puede tomar unos minutos");
                     }
                 });
         }
@@ -541,17 +541,17 @@
 
     function start_service() {
         $.get("/start_service");
-        message("服务已启动")
+        message("Servicio iniciado")
     }
 
     function stop_service() {
         $.get("/stop_service");
-        message("服务已停止")
+        message("El servicio se ha detenido")
     }
 
     function restart_service() {
         $.get("/restart_service");
-        message("服务已重启")
+        message("El servicio ha sido reiniciado")
     }
 
     function uuid() {
