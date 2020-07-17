@@ -4,96 +4,102 @@ import json
 import os
 import commands
 
-
 def open_port(port):
-    cmd = [
-        "iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $1 -j ACCEPT",
-        "iptables -I INPUT -m state --state NEW -m udp -p udp --dport $1 -j ACCEPT",
-        "ip6tables -I INPUT -m state --state NEW -m tcp -p tcp --dport $1 -j ACCEPT",
-        "ip6tables -I INPUT -m state --state NEW -m udp -p udp --dport $1 -j ACCEPT"
-    ]
+    cmd =[ "iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $1 -j ACCEPT",
+            "iptables -I INPUT -m state --state NEW -m udp -p udp --dport $1 -j ACCEPT",
+            "ip6tables -I INPUT -m state --state NEW -m tcp -p tcp --dport $1 -j ACCEPT",
+            "ip6tables -I INPUT -m state --state NEW -m udp -p udp --dport $1 -j ACCEPT"]
 
     for x in cmd:
-        x = x.replace("$1", str(port))
+        x = x.replace("$1",str(port))
         commands.getoutput(x)
-
 
 def start():
     os.system("""supervisorctl start v2ray.fun""")
 
-
 def stop():
     os.system("""supervisorctl stop v2ray.fun""")
 
-
 def write(data):
-    with open("/usr/local/V2ray.Fun/panel.config", "w") as f:
-        json.dump(data, f, indent=2)
-
+    data_file = open("/usr/local/V2ray.Fun/panel.config", "w")
+    data_file.write(json.dumps(data,indent=2))
+    data_file.close()
 
 if __name__ == '__main__':
-    with open("/usr/local/V2ray.Fun/panel.config") as f:
-        data = json.load(f)
-
-    print("欢迎使用 V2ray.Fun 面板 ---- By 雨落无声\n")
-    print("当前面板用户名：" + str(data['username']))
-    print("当前面板密码：" + str(data['password']))
-    print("当前面板监听端口：" + str(data['port']))
-    print("请输入数字选择功能：\n")
-    print("1. 启动面板")
-    print("2. 停止面板")
-    print("3. 重启面板")
-    print("4. 设置面板用户名和密码")
-    print("5. 设置面板SSL")
-    print("6. 设置面板端口")
-    choice = str(input("\n请选择："))
+    data_file = open("/usr/local/V2ray.Fun/panel.config","r")
+    data = json.loads(data_file.read())
+    data_file.close()
+    print("       ──── ❖ ── ✦ ── ❖ ────        ")
+    print("Bienvenido a V2ray panel - by Xd\n")
+    print("nombre de usuario actual del panel：" + str(data['username']))
+    print("Contrasena actual del panel：" + str(data['password']))
+    print("Puerto del panel actual：" + str(data['port']))
+    print("Por favor ingrese la funcion de seleccion de numeros：\n")
+    print("       ──── ❖ ── ✦ ── ❖ ────        ")
+    print("1. Inicio del Panel")
+    print("2. Detener el Panel")
+    print("3. Reiniciar el panel")
+    print("4. Restablecer el nombre de usuario y la contrasena del panel")
+    print("5. Establecer estado del Panel SSL")
+    print("6. Configuracion del puerto del panel")
+    print("       ──── ❖ ── ✦ ── ❖ ────        ")
+    choice = str(input("\nSeleccione una opcion："))
 
     if choice == "1":
         start()
         open_port(data['port'])
-        print("启动成功!")
+        print("Inicio exitoso!")
 
     elif choice == "2":
         stop()
-        print("停止成功！")
+        print("detencion exitosa！")
 
     elif choice == "3":
         stop()
         start()
         open_port(data['port'])
-        print("重启成功!")
+        print("El reinicio es exitoso!")
     elif choice == "4":
-        new_username = str(raw_input("请输入新的用户名："))
-        new_password = str(raw_input("请输入新的密码："))
+        new_username = str(raw_input("Por favor ingrese un nuevo nombre de usuario："))
+        new_password = str(raw_input("Por favor ingrese una nueva contrasena："))
         data['username'] = new_username
         data['password'] = new_password
         write(data)
         stop()
         start()
-        print("用户名密码设置成功！")
+        print("       ──── ❖ ── ✦ ── ❖ ────        ")
+        print("La contrasena del nombre de usuario se establecio correctamente!！")
+        print("       ──── ❖ ── ✦ ── ❖ ────        ")
     elif choice == "5":
-        print("提示：只有在面板开启 V2ray TLS 功能时，面板自身的SSL功能才会正常运行。\n")
-        print("1. 打开面板 SSL 功能")
-        print("2. 关闭面板 SSL 功能")
-        ssl_choice = str(input("请选择："))
+    	print("       ──── ❖ ── ✦ ── ❖ ────        ")
+        print("Sugerencia: la funcionalidad SSL del panel solo funcionara si la función V2ray TLS esta habilitada en el panel\n")
+        print("1. Abrir la función SSL del panel")
+        print("2. Desactivar la funcionalidad SSL del panel")
+        print("       ──── ❖ ── ✦ ── ❖ ────        ")
+        ssl_choice = str(input("seleccione una opcion："))
 
         if ssl_choice == "1":
             data['use_ssl'] = "on"
             write(data)
             stop()
             start()
-            print("面板SSL已开启！")
+            print("Panel SSL está activado!")
         else:
             data['use_ssl'] = "off"
             write(data)
             stop()
             start()
-            print("面板SSL已关闭！")
+            print("       ──── ❖ ── ✦ ── ❖ ────        ")
+            print("Panel SSL esta desactivado!")
+            print("       ──── ❖ ── ✦ ── ❖ ────        ")
     elif choice == "6":
-        new_port = input("请输入新的面板端口：")
+        new_port = input("Por favor ingrese un nuevo puerto de panel：")
         data['port'] = int(new_port)
         write(data)
         stop()
         start()
         open_port(data['port'])
-        print("面板端口已修改！")
+        print("       ──── ❖ ── ✦ ── ❖ ────        ")
+        print("El puerto del panel ha sido modificado!")
+        print("       ──── ❖ ── ✦ ── ❖ ────        ")
+        
