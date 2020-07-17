@@ -52,7 +52,7 @@ if [ ${OS} == CentOS ];then
 fi
 
 if [ ${Debian_version} == 9 ];then
-	wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/V2ray.Fun/master/enable-debian9-rclocal.sh
+	wget -N --no-check-certificate https://raw.githubusercontent.com/scriptsmx/V2ray.Fun/master/enable-debian9-rclocal.sh
 	bash enable-debian9-rclocal.sh
 	rm enable-debian9-rclocal.sh
 fi
@@ -65,7 +65,7 @@ curl -L -s https://install.direct/go.sh | bash
 
 #Install V2ray.Fun
 cd /usr/local/
-git clone https://github.com/FunctionClub/V2ray.Fun
+git clone https://github.com/scriptsmx/V2ray.Fun
 
 #Generate Default Configurations
 cd /usr/local/V2ray.Fun/ && python init.py
@@ -98,28 +98,32 @@ killasgroup=true
 EOF
 #Reload the supervisor after modifying the configuration
 supervisorctl reload
-
-read -p "请输入默认用户名[默认admin]： " un
-read -p "请输入默认登录密码[默认admin]： " pw
-read -p "请输入监听端口号[默认5000]： " uport
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+echo -e "\e[1;100mESTOS DATOS SE USARAN PARA ENRAR AL PANEL\e[0m"
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+read -p "ingrese el nombre de usuario [predeterminado admin]: " un
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+read -p "Ingrese la contrasena de inicio de sesion [predeterminado admin]: " pw
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+read -p "Introduzca el numero de puerto [predeterminado 5000]: " uport
 if [[ -z "${uport}" ]];then
 	uport="5000"
 else
 	if [[ "$uport" =~ ^(-?|\+?)[0-9]+(\.?[0-9]+)?$ ]];then
 		if [[ $uport -ge "65535" || $uport -le 1 ]];then
-			echo "端口范围取值[1,65535]，应用默认端口号5000"
+			echo -e "\e[1;31mvalor de rango de puerto [1,65535], aplique el numero de puerto predeterminado 5000"
 			unset uport
 			uport="5000"
 		else
 			tport=`netstat -anlt | awk '{print $4}' | sed -e '1,2d' | awk -F : '{print $NF}' | sort -n | uniq | grep "$uport"`
 			if [[ ! -z ${tport} ]];then
-				echo "端口号已存在！应用默认端口号5000"
+				echo -e "\e[1;31mEl numero de puerto ya existe! Aplique el numero de puerto predeterminado 5000$"
 				unset uport
 				uport="5000"
 			fi
 		fi
 	else
-		echo "请输入数字！应用默认端口号5000"
+		echo -e "\e[1;37mPor favor, ingrese un número. Aplique el número de puerto predeterminado 5000"
 		uport="5000"
 	fi
 fi
@@ -136,14 +140,20 @@ chmod 777 /etc/v2ray/config.json
 supervisord -c /etc/supervisor/supervisord.conf
 echo "supervisord -c /etc/supervisor/supervisord.conf">>/etc/rc.local
 chmod +x /etc/rc.local
-
-echo "安装成功！
-"
-echo "面板端口：${uport}"
-echo "默认用户名：${un}"
-echo "默认密码：${pw}"
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+echo -e "La instalacion ah sido exitosa!"
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+echo -e "\e[1;37mPuerto del panel:\e[1;33m ${uport}"
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+echo -e "\e[1;37mNombre de usuario:\e[1;33m ${un}"
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+echo -e "\e[1;37mContrasena:\e[1;33m ${pw}"
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
+echo -e "\e[1;37mAcceso al panel: http://$IP:${uport}"
+echo -e "\e[1;37mO use la direccion de su dominio mas el puerto"
+echo -e "\e[1;31m   ──── ❖ ── ✦ ── ❖ ────        \e[0m"
 echo ''
-echo "输入 v2ray 并回车可以手动管理网页面板相关功能"
+echo "Gracias por utilizar v2ray "
 
 #清理垃圾文件
 rm -rf /root/config.json
